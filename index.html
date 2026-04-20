@@ -1051,6 +1051,7 @@ Beyond academics, it also highlights my hobbies and passions, offering a glimpse
                 {
                     title: "Output 3: Canva Portfolio",
                     description: "This portfolio presents an overview of who I am—my background, educational journey, skills, and personal interests. It reflects the experiences that have shaped me, the knowledge I’ve gained, and the abilities I continue to develop."
+                }
             ],
             tutorials: {
                 canva: "My Canva tutorial covers everything from the basics of navigating the platform to creating complex designs. You will learn how to use templates effectively, customize graphics, choose color schemes and fonts, and export your work in different formats. It is perfect for beginners who want to start creating professional visuals quickly and easily.",
@@ -1062,11 +1063,9 @@ Beyond academics, it also highlights my hobbies and passions, offering a glimpse
                 certificates: "You can view or download copies of my certificates from the 'Seminars & Certifications' section on this page, or you can download my CV which includes all my qualifications and achievements."
             },
             contacts: {
-                call: "+63 912 345 6789",
-                email: "your.email@example.com",
-                facebook: "facebook.com/yourprofile",
-                linkedin: "linkedin.com/in/yourprofile",
-                instagram: "instagram.com/yourprofile"
+                call: "+63 970 0427 462",
+                email: "krishaminmaque@gmail.com",
+                facebook: "Krisha Min"
             }
         };
 
@@ -1081,7 +1080,7 @@ Beyond academics, it also highlights my hobbies and passions, offering a glimpse
 
             // Profile related questions
             else if (lowerMessage.match(/name|who are you|about you|profile|intro|introduction/)) {
-                return `My name is ${chatbotData.profile.name}. I work as a ${chatbotData.profile.title}. ${chatbotData.profile.introduction}`;
+                return `My name is ${chatbotData.profile.name}. I am an ${chatbotData.profile.title}. ${chatbotData.profile.introduction}`;
             }
 
             // Outputs related questions
