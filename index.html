@@ -3,70 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
+    <title>Krishamin Lagahit | Professional Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* ALL ORIGINAL STYLES RESTORED */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
         :root {
             --primary: #165DFF; --secondary: #4080FF; --light: #E8F3FF;
-            --dark: #0F3885; --neon-blue: #00ccff; --gray-50: #F9FAFB;
-            --gray-700: #374151; --gray-800: #1F2937; --white: #FFFFFF; --black: #000000;
+            --neon-blue: #00ccff; --white: #FFFFFF; --black: #000000;
         }
-        body { background-color: var(--black); color: var(--gray-50); line-height: 1.6; scroll-behavior: smooth; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-        .container { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 20px; }
-        nav { background-color: var(--primary); color: var(--white); position: fixed; width: 100%; z-index: 50; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
-        .nav-links { display: flex; justify-content: center; gap: 40px; padding: 15px 0; flex-wrap: wrap; }
-        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
-        main { width: 100%; max-width: 1200px; padding-top: 140px; padding-bottom: 60px; }
-        section { margin-bottom: 60px; }
-        .profile-intro { display: flex; align-items: center; gap: 40px; margin-bottom: 48px; padding: 32px 0; flex-wrap: wrap; justify-content: center; text-align: center; }
-        .profile-img { width: 260px; height: 260px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 30px rgba(0, 204, 255, 0.5); }
-        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
-        .profile-details h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: var(--neon-blue); margin-bottom: 8px; }
-        .profile-details p { font-size: 1.2rem; color: var(--light); font-style: italic; }
-        .content-block { display: flex; align-items: center; gap: 32px; margin-bottom: 40px; flex-wrap: wrap; }
-        .content-block.reverse { flex-direction: row-reverse; }
-        .content-text, section > p.intro-text, .output-content p, .tutorial-card p { border: 2px solid var(--neon-blue); border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(0, 204, 255, 0.3); background-color: rgba(22, 93, 255, 0.05); }
-        .content-image { flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 204, 255, 0.2); }
-        .content-image img { width: 100%; height: auto; display: block; }
-        section h2 { font-size: 1.8rem; color: var(--neon-blue); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--neon-blue); }
-        .slideshow-container { position: relative; height: 450px; background-color: rgba(22, 93, 255, 0.05); border-radius: 12px; overflow: hidden; border: 2px solid var(--neon-blue); margin-bottom: 24px; }
-        .slides { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
-        .slide { min-width: 100%; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .slide img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .output-card, .tutorial-card { background-color: rgba(22, 93, 255, 0.05); border-radius: 12px; padding: 28px; box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); margin-bottom: 24px; border: 2px solid var(--neon-blue); display: flex; gap: 24px; flex-wrap: wrap; }
-        .output-card.reverse { flex-direction: row-reverse; }
-        .output-content, .output-image { flex: 1; min-width: 300px; }
-        .output-image img { width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 204, 255, 0.2); }
-        .tutorial-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-bottom: 16px; width: 100%; }
-        .tutorial-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .btn { display: inline-block; padding: 14px 35px; border-radius: 12px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border: none; cursor: pointer; background-color: var(--primary); color: var(--white); }
-        .btn-secondary { background-color: var(--secondary); margin-top: 10px; }
-        
-        /* NEW: Contact Form Style */
-        .contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-        .contact-form input, .contact-form textarea { background: #000; border: 1px solid var(--neon-blue); color: #fff; padding: 15px; border-radius: 8px; outline: none; }
-        .contact-form button { background: var(--primary); color: white; cursor: pointer; padding: 15px; border-radius: 8px; font-weight: bold; border: none; }
+        body { background-color: var(--black); color: #F9FAFB; line-height: 1.6; scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* Chatbot Styles Restored */
+        /* Navigation */
+        nav { background-color: var(--primary); color: var(--white); position: fixed; width: 100%; z-index: 50; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .nav-links { display: flex; justify-content: center; gap: 30px; padding: 15px 0; flex-wrap: wrap; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; }
+
+        main { padding-top: 120px; padding-bottom: 60px; }
+        section { margin-bottom: 60px; }
+        h2 { color: var(--neon-blue); border-bottom: 2px solid var(--neon-blue); margin-bottom: 20px; padding-bottom: 10px; }
+        
+        /* Header */
+        .profile-intro { display: flex; align-items: center; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; justify-content: center; text-align: center; }
+        .profile-img { width: 260px; height: 260px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 30px rgba(0, 204, 255, 0.5); border: 4px solid var(--primary); }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-details h1 { color: var(--neon-blue); font-size: clamp(2rem, 5vw, 3.5rem); }
+        
+        /* Intro Rows */
+        .intro-row { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
+        .intro-row.reverse { flex-direction: row-reverse; }
+        .intro-text-box { flex: 1; min-width: 300px; border: 2px solid var(--neon-blue); border-radius: 12px; padding: 25px; background: rgba(22, 93, 255, 0.05); box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); }
+        .intro-image-box { flex: 1; min-width: 300px; border: 2px solid var(--neon-blue); border-radius: 12px; overflow: hidden; height: 320px; box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); }
+        .intro-image-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Slideshow */
+        .slideshow-container { position: relative; height: 450px; overflow: hidden; border: 2px solid var(--neon-blue); border-radius: 12px; background: rgba(22, 93, 255, 0.05); }
+        .slides { display: flex; transition: 0.5s ease-in-out; height: 100%; }
+        .slide { min-width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .slide img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        
+        /* Uniform Button Style */
+        .btn { 
+            display: inline-block; 
+            padding: 12px 25px; 
+            background: var(--primary); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-weight: 500; 
+            transition: 0.3s; 
+            border: none; 
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .btn:hover { background: var(--neon-blue); color: black; }
+
+        /* Outputs */
+        .output-card { border: 2px solid var(--neon-blue); padding: 28px; border-radius: 12px; margin-bottom: 30px; background: rgba(22,93,255,0.05); display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+        .output-card.reverse { flex-direction: row-reverse; }
+        .output-info { flex: 1; min-width: 300px; }
+        .output-media { flex: 1; min-width: 300px; text-align: center; }
+        .output-media img { width: 100%; border-radius: 8px; border: 1px solid var(--neon-blue); margin-bottom: 15px; }
+        
+        /* Tutorials */
+        .tutorial-card { border: 2px solid var(--neon-blue); padding: 25px; border-radius: 12px; margin-bottom: 30px; background: rgba(22,93,255,0.05); }
+        .tutorial-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-bottom: 16px; border: 1px solid var(--neon-blue); }
+        .tutorial-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .tutorial-card p { border: 1px solid var(--neon-blue); padding: 15px; border-radius: 8px; background: rgba(0,0,0,0.3); }
+
+        /* Contact Form */
+        .contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 20px auto; }
+        .contact-form input, .contact-form textarea { background: #000; border: 2px solid var(--neon-blue); color: white; padding: 15px; border-radius: 8px; outline: none; }
+        .contact-details-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .contact-item { flex: 1; min-width: 250px; border: 2px solid var(--neon-blue); padding: 25px; border-radius: 12px; text-align: center; background: rgba(22,93,255,0.05); }
+        .contact-item i { font-size: 1.5rem; color: var(--neon-blue); margin-bottom: 10px; }
+
+        /* Chatbot */
         .chatbot-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; }
-        .chatbot-toggle { width: 70px; height: 70px; background-color: var(--primary); color: var(--white); border: 3px solid var(--neon-blue); border-radius: 50%; font-size: 2rem; cursor: pointer; box-shadow: 0 0 20px rgba(0, 204, 255, 0.5); display: flex; align-items: center; justify-content: center; }
-        .chatbot-window { width: 420px; max-width: calc(100vw - 40px); height: 550px; background-color: rgba(0, 0, 0, 0.95); border-radius: 15px; display: none; flex-direction: column; border: 2px solid var(--neon-blue); }
-        .chatbot-header { background: var(--primary); color: var(--white); padding: 16px; display: flex; justify-content: space-between; align-items: center; border-radius: 13px 13px 0 0; }
-        .chatbot-messages { flex: 1; padding: 16px; overflow-y: auto; }
-        .message { margin-bottom: 16px; display: flex; }
-        .message.bot { justify-content: flex-start; }
-        .message.user { justify-content: flex-end; }
-        .message-content { padding: 12px 16px; border-radius: 12px; max-width: 80%; }
-        .bot .message-content { background: rgba(0, 204, 255, 0.1); border: 1px solid var(--neon-blue); }
-        .user .message-content { background: var(--primary); }
-        .chatbot-input-area { padding: 16px; display: flex; gap: 10px; border-top: 1px solid rgba(0, 204, 255, 0.2); }
-        .chatbot-input { flex: 1; background: #000; border: 1px solid var(--neon-blue); color: #fff; padding: 10px; border-radius: 20px; outline: none; }
-        footer { background-color: var(--primary); text-align: center; padding: 25px 0; width: 100%; border-top: 2px solid var(--neon-blue); }
+        .chatbot-toggle { width: 70px; height: 70px; background: var(--primary); border: 3px solid var(--neon-blue); border-radius: 50%; color: white; font-size: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px var(--neon-blue); }
+        .chatbot-window { width: 400px; max-width: 90vw; height: 500px; background: #000; border: 2px solid var(--neon-blue); position: absolute; bottom: 85px; right: 0; display: none; flex-direction: column; border-radius: 15px; }
+        .chatbot-header { background: var(--primary); padding: 15px; border-radius: 13px 13px 0 0; display: flex; justify-content: space-between; align-items: center; }
+        .chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; }
+        .chat-bubble { background: rgba(0, 204, 255, 0.1); border: 1px solid var(--neon-blue); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
+        .chatbot-input-area { display: flex; padding: 15px; gap: 10px; border-top: 1px solid rgba(0,204,255,0.2); }
+        .chatbot-input { flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--neon-blue); background: #111; color: white; outline: none; }
+
+        footer { text-align: center; padding: 25px; background: var(--primary); border-top: 2px solid var(--neon-blue); margin-top: 40px; }
     </style>
 </head>
 <body>
+
     <nav>
         <div class="container">
             <div class="nav-links">
@@ -88,68 +115,69 @@
                 </div>
             </div>
 
-            <div class="content-block">
-                <div class="content-text">
+            <div class="intro-row">
+                <div class="intro-text-box">
                     <p>Welcome to my professional portfolio! I am dedicated to creating high-quality digital solutions and learning new skills continuously. With a background in design and technology, I strive to deliver work that is not only functional but also visually appealing. I believe in the power of creativity and strategy to solve problems and create meaningful experiences.</p>
                 </div>
-                <div class="content-image">
+                <div class="intro-image-box">
                     <img src="students-in-front-of-a-computer-employer-engagement-team.jpg">
                 </div>
             </div>
 
-            <div class="content-block reverse">
-                <div class="content-text">
+            <div class="intro-row reverse">
+                <div class="intro-text-box">
                     <p>Throughout my career and academic journey, I have developed expertise across multiple creative platforms and tools. I focus on understanding client needs and project goals to produce results that exceed expectations. My approach combines technical proficiency with artistic vision, ensuring that every project I work on is completed with attention to detail and innovation.</p>
                 </div>
-                <div class="content-image">
+                <div class="intro-image-box">
                     <img src="IMG_20250618_103354.jpg">
                 </div>
             </div>
 
             <h2>Seminars & Certifications</h2>
-            <p class="intro-text">I have participated in various professional development seminars and workshops to enhance my skills and stay updated with industry trends.</p>
             <div class="slideshow-container">
-                <div class="slides" id="mainSlides">
+                <div class="slides" id="certSlides">
                     <div class="slide"><img src="IMG_20260420_123430.jpg"></div>
                     <div class="slide"><img src="IMG_20260408_175806.jpg"></div>
                     <div class="slide"><img src="IMG_20260420_123514.jpg"></div>
                 </div>
             </div>
-            <a href="Krishamin Lagahit BSIT 1A.docx" download class="btn">Download My CV</a>
+            <br>
+            <a href="Krishamin Lagahit BSIT 1A.docx" download class="btn"><i class="fa fa-download"></i> Download My CV</a>
         </section>
 
         <section id="outputs">
             <h2>My Outputs</h2>
+            
             <div class="output-card">
-                <div class="output-content">
+                <div class="output-info">
                     <h3>Output 1: Figma E-Commerce Design Layout</h3>
-                    <p>RushRide is a mobile ride-booking app prototype that I designed using Figma. The app allows users to easily book rides, view available drivers, and navigate through a simple and organized interface. As a beginner, I focused on creating a clear layout, intuitive navigation, and a user-friendly experience.</p>
+                    <p>RushRide is a mobile ride-booking app prototype that I designed using Figma. The app allows users to easily book rides, view available drivers, and navigate through a simple and organized interface.</p>
                 </div>
-                <div class="output-image">
+                <div class="output-media">
                     <img src="IMG_20260420_221505.jpg">
-                    <a href="https://www.figma.com/design/8BqKHKnVOEMFhsNDgKGyaF/HCI?node-id=1-6" class="btn btn-secondary">View Details</a>
+                    <a href="https://www.figma.com/design/8BqKHKnVOEMFhsNDgKGyaF/HCI?node-id=1-6" class="btn">View Figma</a>
                 </div>
             </div>
 
             <div class="output-card reverse">
-                <div class="output-content">
+                <div class="output-info">
                     <h3>Output 2: Wordpress Website</h3>
-                    <p>This project is a portfolio website published in Wordpress. It features a little about myself and the outputs I've learned during first semester. The layout is fully adaptable to different screen sizes, ensuring content looks great on any device.</p>
+                    <p>This project is a portfolio website published in Wordpress. It features a little about myself and the outputs I've learned during the first semester.</p>
                 </div>
-                <div class="output-image">
+                <div class="output-media">
                     <img src="IMG_20260420_215234.jpg">
-                    <a href="https://myportfoliointroducingme.wordpress.com/" class="btn btn-secondary">View Details</a>
+                    <a href="https://myportfoliointroducingme.wordpress.com/" class="btn">View Site</a>
                 </div>
             </div>
 
             <div class="output-card">
-                <div class="output-content">
+                <div class="output-info">
                     <h3>Output 3: Canva Portfolio</h3>
-                    <p>This portfolio presents an overview of who I am—my background, educational journey, skills, and personal interests. It reflects the experiences that have shaped me and the knowledge I've gained.</p>
+                    <p>This portfolio presents an overview of who I am—my background, educational journey, skills, and personal interests.</p>
                 </div>
-                <div class="output-image">
+                <div class="output-media">
                     <img src="IMG_20251021_151216.jpg">
-                    <a href="https://www.canva.com/design/DAGv1DUumnk/..." class="btn btn-secondary">View Details</a>
+                    <a href="https://www.canva.com/design/DAGv1DUumnk/..." class="btn">View Canva</a>
                 </div>
             </div>
         </section>
@@ -158,58 +186,48 @@
             <h2>Tutorials</h2>
             <div class="tutorial-card">
                 <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/jzWxBuvwuwQ"></iframe></div>
-                <div style="width: 100%;">
-                    <h3>Getting Started with Canva</h3>
-                    <p>In this tutorial, you will learn the basics of using Canva, from navigating the interface to creating your first design. I will show you how to use templates, edit elements, and export your work.</p>
-                </div>
+                <h3>Getting Started with Canva</h3>
+                <p>Learn the basics of using Canva, from navigating the interface to creating your first design.</p>
             </div>
             <div class="tutorial-card">
                 <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/jQ1sfKIl50E"></iframe></div>
-                <div style="width: 100%;">
-                    <h3>UI/UX Design Fundamentals with Figma</h3>
-                    <p>This tutorial covers the essential tools and features of Figma used in modern interface design. You will learn how to create wireframes and interactive prototypes.</p>
-                </div>
+                <h3>UI/UX Design with Figma</h3>
+                <p>Learn how to create wireframes and interactive prototypes using Figma's essential tools.</p>
+            </div>
+            <div class="tutorial-card">
+                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/61mkx_OV61s"></iframe></div>
+                <h3>Photo Editing in Photoshop</h3>
+                <p>Comprehensive guide on color correction and retouching in Adobe Photoshop.</p>
             </div>
         </section>
 
         <section id="contacts">
             <h2>Contact Me</h2>
-            <div class="intro-text">Feel free to reach out through the form below or via my social channels.</div>
-            
-            <form action="https://formspree.io/f/xkokqpwz" method="POST" class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/xkokqpwz" method="POST">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
+                <button type="submit" class="btn">Send Message</button>
             </form>
 
-            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 40px; gap: 20px;">
-                <div class="intro-text" style="flex: 1; min-width: 250px; text-align: center;">
-                    <i class="fa fa-phone"></i><br>+63 970 0427 462
-                </div>
-                <div class="intro-text" style="flex: 1; min-width: 250px; text-align: center;">
-                    <i class="fa fa-envelope"></i><br>krishaminmaque@gmail.com
-                </div>
-                <div class="intro-text" style="flex: 1; min-width: 250px; text-align: center;">
-                    <i class="fa fa-facebook"></i><br>Krisha Min
-                </div>
+            <div class="contact-details-grid">
+                <div class="contact-item"><i class="fa fa-phone"></i><br>+63 970 0427 462</div>
+                <div class="contact-item"><i class="fa fa-envelope"></i><br>krishaminmaque@gmail.com</div>
+                <div class="contact-item"><i class="fa fa-facebook"></i><br>Krisha Min</div>
             </div>
         </section>
     </main>
 
     <div class="chatbot-container">
-        <button id="chatbotToggle" class="chatbot-toggle"><i class="fa fa-robot"></i></button>
+        <button id="chatbotToggle" class="chatbot-toggle"><i class="fa fa-comments"></i></button>
         <div id="chatbotWindow" class="chatbot-window">
-            <div class="chatbot-header">
-                <h3>AI Assistant</h3>
-                <button id="closeChat" style="background:none; border:none; color:white; cursor:pointer; font-size: 1.5rem;">&times;</button>
-            </div>
+            <div class="chatbot-header"><h3>AI Assistant</h3><button id="closeChat" style="background:none; border:none; color:white; cursor:pointer;">X</button></div>
             <div id="chatMessages" class="chatbot-messages">
-                <div class="message bot"><div class="message-content">Hello! I'm your AI assistant. How can I help you today?</div></div>
+                <div class="chat-bubble">Hi! I'm your AI assistant. How can I help you?</div>
             </div>
             <div class="chatbot-input-area">
                 <input type="text" id="chatInput" class="chatbot-input" placeholder="Type here...">
-                <button id="sendChat" style="background:var(--primary); color:white; border:none; padding:8px 15px; border-radius:20px;">Send</button>
+                <button id="sendChat" style="background:var(--primary); color:white; border:none; padding:10px 15px; border-radius:20px; cursor:pointer;"><i class="fa fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
@@ -217,48 +235,51 @@
     <footer><p>&copy; 2026 Krishamin Lagahit. All rights reserved.</p></footer>
 
     <script>
-        /* ALL JAVASCRIPT FIXED TO PREVENT "ALREADY DECLARED" ERRORS */
-        const portfolioData = {
+        const myFinalPortfolioData = {
             name: "Krishamin Lagahit",
-            contact: "Email: krishaminmaque@gmail.com | Phone: +63 970 0427 462"
+            school: "CPSU-Moises Padilla"
         };
 
         const chatWin = document.getElementById('chatbotWindow');
         const chatInp = document.getElementById('chatInput');
         const chatMsgs = document.getElementById('chatMessages');
 
-        document.getElementById('chatbotToggle').onclick = () => chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
-        document.getElementById('closeChat').onclick = () => chatWin.style.display = 'none';
+        document.getElementById('chatbotToggle').onclick = () => {
+            chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
+        };
 
-        function appendMsg(text, isUser = false) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-            msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
-            chatMsgs.appendChild(msgDiv);
+        document.getElementById('closeChat').onclick = () => {
+            chatWin.style.display = 'none';
+        };
+
+        function addMessage(text, isUser = false) {
+            const div = document.createElement('div');
+            div.className = 'chat-bubble';
+            div.style.textAlign = isUser ? 'right' : 'left';
+            div.style.background = isUser ? 'var(--primary)' : 'rgba(0, 204, 255, 0.1)';
+            div.innerText = text;
+            chatMsgs.appendChild(div);
             chatMsgs.scrollTop = chatMsgs.scrollHeight;
         }
 
         document.getElementById('sendChat').onclick = () => {
-            const val = chatInp.value.trim();
-            if (!val) return;
-            appendMsg(val, true);
+            const val = chatInp.value.trim().toLowerCase();
+            if(!val) return;
+            addMessage(chatInp.value, true);
             chatInp.value = '';
-
-            let reply = "I'm sorry, I don't have an answer for that. You can ask about my projects or contact details!";
-            const lowerVal = val.toLowerCase();
-            if (lowerVal.includes("name")) reply = "My name is " + portfolioData.name;
-            if (lowerVal.includes("contact")) reply = portfolioData.contact;
-            if (lowerVal.includes("hi") || lowerVal.includes("hello")) reply = "Hello! How can I help you explore my work?";
-
-            setTimeout(() => appendMsg(reply), 600);
+            
+            let reply = "Feel free to ask about my projects or contact info!";
+            if(val.includes("who")) reply = "I am " + myFinalPortfolioData.name + " from " + myFinalPortfolioData.school;
+            if(val.includes("hi") || val.includes("hello")) reply = "Hello! How can I help you today?";
+            
+            setTimeout(() => addMessage(reply), 600);
         };
 
-        // Slideshow Fix
-        let slideIdx = 0;
+        let currentIdx = 0;
         setInterval(() => {
-            const slideWrap = document.getElementById('mainSlides');
-            slideIdx = (slideIdx + 1) % 3;
-            slideWrap.style.transform = `translateX(-${slideIdx * 100}%)`;
+            const wrap = document.getElementById('certSlides');
+            currentIdx = (currentIdx + 1) % 3;
+            wrap.style.transform = `translateX(-${currentIdx * 100}%)`;
         }, 4000);
     </script>
 </body>
