@@ -3,97 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishamin Lagahit | Professional Portfolio</title>
+    <title>My Professional Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
-        :root {
-            --primary: #165DFF; --secondary: #4080FF; --light: #E8F3FF;
-            --neon-blue: #00ccff; --white: #FFFFFF; --black: #000000;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, sans-serif;
         }
-        body { background-color: var(--black); color: #F9FAFB; line-height: 1.6; scroll-behavior: smooth; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* Navigation */
-        nav { background-color: var(--primary); color: var(--white); position: fixed; width: 100%; z-index: 50; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .nav-links { display: flex; justify-content: center; gap: 30px; padding: 15px 0; flex-wrap: wrap; }
-        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; }
+        :root {
+            --primary: #165DFF;
+            --secondary: #4080FF;
+            --light: #E8F3FF;
+            --dark: #0F3885;
+            --neon-blue: #00ccff;
+            --gray-50: #F9FAFB;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
 
-        main { padding-top: 120px; padding-bottom: 60px; }
-        section { margin-bottom: 60px; }
-        h2 { color: var(--neon-blue); border-bottom: 2px solid var(--neon-blue); margin-bottom: 20px; padding-bottom: 10px; }
-        
-        /* Header */
-        .profile-intro { display: flex; align-items: center; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; justify-content: center; text-align: center; }
-        .profile-img { width: 260px; height: 260px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 30px rgba(0, 204, 255, 0.5); border: 4px solid var(--primary); }
-        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
-        .profile-details h1 { color: var(--neon-blue); font-size: clamp(2rem, 5vw, 3.5rem); }
-        
-        /* Intro Rows */
-        .intro-row { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
-        .intro-row.reverse { flex-direction: row-reverse; }
-        .intro-text-box { flex: 1; min-width: 300px; border: 2px solid var(--neon-blue); border-radius: 12px; padding: 25px; background: rgba(22, 93, 255, 0.05); box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); }
-        .intro-image-box { flex: 1; min-width: 300px; border: 2px solid var(--neon-blue); border-radius: 12px; overflow: hidden; height: 320px; box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); }
-        .intro-image-box img { width: 100%; height: 100%; object-fit: cover; }
+        body {
+            background-color: var(--black);
+            color: var(--gray-50);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        /* Slideshow */
-        .slideshow-container { position: relative; height: 450px; overflow: hidden; border: 2px solid var(--neon-blue); border-radius: 12px; background: rgba(22, 93, 255, 0.05); }
-        .slides { display: flex; transition: 0.5s ease-in-out; height: 100%; }
-        .slide { min-width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .slide img { max-height: 100%; max-width: 100%; object-fit: contain; }
-        
-        /* Uniform Button Style */
-        .btn { 
-            display: inline-block; 
-            padding: 12px 25px; 
-            background: var(--primary); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: 500; 
-            transition: 0.3s; 
-            border: none; 
-            cursor: pointer;
-            font-size: 1rem;
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--primary);
+            color: var(--white);
+            position: fixed;
+            width: 100%;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        /* Main Content */
+        main {
+            width: 100%;
+            max-width: 1200px;
+            padding-top: 140px; 
+            padding-bottom: 60px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        /* Profile Section */
+        .profile-intro {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 48px;
+            padding: 32px 0;
+            flex-wrap: wrap;
+            justify-content: center;
             text-align: center;
         }
-        .btn:hover { background: var(--neon-blue); color: black; }
 
-        /* Outputs */
-        .output-card { border: 2px solid var(--neon-blue); padding: 28px; border-radius: 12px; margin-bottom: 30px; background: rgba(22,93,255,0.05); display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+        .profile-img {
+            width: 260px; 
+            height: 260px; 
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.5); 
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-details h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--neon-blue);
+            margin-bottom: 8px;
+        }
+
+        .profile-details p {
+            font-size: 1.2rem;
+            color: var(--light);
+            font-style: italic;
+        }
+
+        /* Content Blocks */
+        .content-block {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .content-block.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-text {
+            flex: 1;
+            min-width: 300px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            background-color: rgba(22, 93, 255, 0.05);
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-50);
+        }
+
+        .content-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 204, 255, 0.2);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Section Headers */
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--neon-blue);
+        }
+
+        section > p.intro-text {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 24px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            background-color: rgba(22, 93, 255, 0.05);
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            height: 450px;
+            background-color: rgba(22, 93, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+            margin-bottom: 24px;
+            border: 2px solid var(--neon-blue);
+        }
+
+        .slides {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 204, 255, 0.8);
+            color: var(--black);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .slide-btn:hover {
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.6);
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 8px rgba(0, 204, 255, 0.8);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0 10px rgba(22, 93, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--white);
+            box-shadow: 0 0 10px rgba(64, 128, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
+        }
+
+        /* Outputs Section */
+        .output-card {
+            background-color: rgba(22, 93, 255, 0.05);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            margin-bottom: 24px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+            border: 2px solid var(--neon-blue);
+        }
+
         .output-card.reverse { flex-direction: row-reverse; }
-        .output-info { flex: 1; min-width: 300px; }
-        .output-media { flex: 1; min-width: 300px; text-align: center; }
-        .output-media img { width: 100%; border-radius: 8px; border: 1px solid var(--neon-blue); margin-bottom: 15px; }
-        
-        /* Tutorials */
-        .tutorial-card { border: 2px solid var(--neon-blue); padding: 25px; border-radius: 12px; margin-bottom: 30px; background: rgba(22,93,255,0.05); }
-        .tutorial-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; margin-bottom: 16px; border: 1px solid var(--neon-blue); }
-        .tutorial-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .tutorial-card p { border: 1px solid var(--neon-blue); padding: 15px; border-radius: 8px; background: rgba(0,0,0,0.3); }
 
-        /* Contact Form */
-        .contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 20px auto; }
-        .contact-form input, .contact-form textarea { background: #000; border: 2px solid var(--neon-blue); color: white; padding: 15px; border-radius: 8px; outline: none; }
-        .contact-details-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .contact-item { flex: 1; min-width: 250px; border: 2px solid var(--neon-blue); padding: 25px; border-radius: 12px; text-align: center; background: rgba(22,93,255,0.05); }
-        .contact-item i { font-size: 1.5rem; color: var(--neon-blue); margin-bottom: 10px; }
+        .output-content { flex: 1; min-width: 300px; }
 
-        /* Chatbot */
-        .chatbot-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; }
-        .chatbot-toggle { width: 70px; height: 70px; background: var(--primary); border: 3px solid var(--neon-blue); border-radius: 50%; color: white; font-size: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px var(--neon-blue); }
-        .chatbot-window { width: 400px; max-width: 90vw; height: 500px; background: #000; border: 2px solid var(--neon-blue); position: absolute; bottom: 85px; right: 0; display: none; flex-direction: column; border-radius: 15px; }
-        .chatbot-header { background: var(--primary); padding: 15px; border-radius: 13px 13px 0 0; display: flex; justify-content: space-between; align-items: center; }
-        .chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; }
-        .chat-bubble { background: rgba(0, 204, 255, 0.1); border: 1px solid var(--neon-blue); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
-        .chatbot-input-area { display: flex; padding: 15px; gap: 10px; border-top: 1px solid rgba(0,204,255,0.2); }
-        .chatbot-input { flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--neon-blue); background: #111; color: white; outline: none; }
+        .output-content h3 {
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            margin-bottom: 12px;
+        }
 
-        footer { text-align: center; padding: 25px; background: var(--primary); border-top: 2px solid var(--neon-blue); margin-top: 40px; }
+        .output-content p {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 16px;
+            line-height: 1.7;
+            border: 2px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            background-color: rgba(22, 93, 255, 0.05);
+        }
+
+        .output-image { flex: 1; min-width: 280px; text-align: center; }
+
+        .output-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0, 204, 255, 0.2);
+        }
+
+        /* Tutorials Section */
+        .tutorial-card {
+            background-color: rgba(22, 93, 255, 0.05);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            margin-bottom: 24px;
+            border: 2px solid var(--neon-blue);
+        }
+
+        .tutorial-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0, 204, 255, 0.2);
+        }
+
+        .tutorial-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .tutorial-card h3 {
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            margin-bottom: 8px;
+        }
+
+        .tutorial-card p {
+            color: var(--light);
+            line-height: 1.7;
+            border: 2px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            background-color: rgba(22, 93, 255, 0.05);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background-color: rgba(22, 93, 255, 0.05);
+            border: 2px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 1px solid var(--neon-blue);
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--dark);
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
+        }
+
+        /* Contacts Grid */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .contact-card {
+            background-color: rgba(22, 93, 255, 0.05);
+            border-radius: 12px;
+            padding: 32px 20px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.2);
+            text-align: center;
+            border: 2px solid var(--neon-blue);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 204, 255, 0.1);
+            color: var(--neon-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 16px;
+        }
+
+        /* Chatbot Styles */
+        .chatbot-container { position: fixed; bottom: 30px; right: 30px; z-index: 40; }
+        .chatbot-toggle { width: 70px; height: 70px; background-color: var(--primary); color: var(--white); border: 3px solid var(--neon-blue); border-radius: 50%; font-size: 2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .chatbot-window { width: 420px; max-width: calc(100vw - 40px); height: 550px; background-color: rgba(0, 0, 0, 0.95); border-radius: 15px; display: none; flex-direction: column; border: 2px solid var(--neon-blue); }
+        .chatbot-header { background: linear-gradient(135deg, var(--primary), var(--dark)); color: var(--white); padding: 16px; display: flex; justify-content: space-between; align-items: center; border-radius: 13px 13px 0 0; }
+        .chatbot-close { background: none; border: none; color: white; cursor: pointer; font-weight: bold; font-size: 1.2rem; }
+        .chatbot-messages { flex: 1; padding: 16px; overflow-y: auto; }
+        .message { margin-bottom: 16px; display: flex; }
+        .message.bot { justify-content: flex-start; }
+        .message.user { justify-content: flex-end; }
+        .message-content { padding: 12px 16px; border-radius: 12px; max-width: 80%; word-wrap: break-word; }
+        .message.bot .message-content { background-color: rgba(0, 204, 255, 0.1); border: 1px solid var(--neon-blue); color: var(--white); }
+        .message.user .message-content { background-color: var(--primary); color: var(--white); }
+        .chatbot-input-area { padding: 16px; border-top: 1px solid rgba(0, 204, 255, 0.2); display: flex; gap: 10px; }
+        .chatbot-input { flex: 1; padding: 12px 16px; border: 1px solid var(--neon-blue); border-radius: 25px; background: #000; color: #fff; outline: none; }
+        .chatbot-send { background: var(--primary); color: #fff; border: 1px solid var(--neon-blue); border-radius: 25px; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+
+        footer { background-color: var(--primary); color: var(--white); text-align: center; padding: 25px 0; width: 100%; border-top: 2px solid var(--neon-blue); }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="container">
             <div class="nav-links">
@@ -108,76 +504,74 @@
     <main class="container">
         <section id="home">
             <div class="profile-intro">
-                <div class="profile-img"><img src="IMG_20250616_185641-removebg-preview.png"></div>
+                <div class="profile-img"><img src="IMG_20250616_185641-removebg-preview.png" alt="Krishamin"></div>
                 <div class="profile-details">
                     <h1>Krishamin Lagahit</h1>
                     <p>IT Student of CPSU-Moises Padilla</p>
                 </div>
             </div>
 
-            <div class="intro-row">
-                <div class="intro-text-box">
-                    <p>Welcome to my professional portfolio! I am dedicated to creating high-quality digital solutions and learning new skills continuously. With a background in design and technology, I strive to deliver work that is not only functional but also visually appealing. I believe in the power of creativity and strategy to solve problems and create meaningful experiences.</p>
-                </div>
-                <div class="intro-image-box">
-                    <img src="students-in-front-of-a-computer-employer-engagement-team.jpg">
-                </div>
+            <div class="content-block">
+                <div class="content-text"><p>Welcome to my professional portfolio! I am dedicated to creating high-quality digital solutions and learning new skills continuously.</p></div>
+                <div class="content-image"><img src="students-in-front-of-a-computer-employer-engagement-team.jpg" alt="Work Context"></div>
             </div>
 
-            <div class="intro-row reverse">
-                <div class="intro-text-box">
-                    <p>Throughout my career and academic journey, I have developed expertise across multiple creative platforms and tools. I focus on understanding client needs and project goals to produce results that exceed expectations. My approach combines technical proficiency with artistic vision, ensuring that every project I work on is completed with attention to detail and innovation.</p>
-                </div>
-                <div class="intro-image-box">
-                    <img src="IMG_20250618_103354.jpg">
-                </div>
+            <div class="content-block reverse">
+                <div class="content-text"><p>I focus on understanding client needs and project goals to produce results that exceed expectations. My approach combines technical proficiency with artistic vision.</p></div>
+                <div class="content-image"><img src="IMG_20250618_103354.jpg" alt="Portfolio Image"></div>
             </div>
 
-            <h2>Seminars & Certifications</h2>
-            <div class="slideshow-container">
-                <div class="slides" id="certSlides">
-                    <div class="slide"><img src="IMG_20260420_123430.jpg"></div>
-                    <div class="slide"><img src="IMG_20260408_175806.jpg"></div>
-                    <div class="slide"><img src="IMG_20260420_123514.jpg"></div>
+            <div>
+                <h2>Seminars & Certifications</h2>
+                <p class="intro-text">I have participated in various professional development seminars. Below is a collection of certificates I have earned.</p>
+                <div class="slideshow-container">
+                    <div class="slides">
+                        <div class="slide"><img src="IMG_20260420_123430.jpg" alt="Cert 1"></div>
+                        <div class="slide"><img src="IMG_20260408_175806.jpg" alt="Cert 2"></div>
+                        <div class="slide"><img src="IMG_20260420_123514.jpg" alt="Cert 3"></div>
+                    </div>
+                    <button class="slide-btn prev-btn" onclick="changeSlide(-1)"><i class="fa fa-chevron-left"></i></button>
+                    <button class="slide-btn next-btn" onclick="changeSlide(1)"><i class="fa fa-chevron-right"></i></button>
+                    <div class="slide-indicators">
+                        <span class="indicator active" onclick="goToSlide(0)"></span>
+                        <span class="indicator" onclick="goToSlide(1)"></span>
+                        <span class="indicator" onclick="goToSlide(2)"></span>
+                    </div>
                 </div>
+                <a href="Krishamin Lagahit BSIT 1A.docx" download class="btn btn-primary"><i class="fa fa-download"></i> Download My CV</a>
             </div>
-            <br>
-            <a href="Krishamin Lagahit BSIT 1A.docx" download class="btn"><i class="fa fa-download"></i> Download My CV</a>
         </section>
 
         <section id="outputs">
             <h2>My Outputs</h2>
-            
             <div class="output-card">
-                <div class="output-info">
-                    <h3>Output 1: Figma E-Commerce Design Layout</h3>
-                    <p>RushRide is a mobile ride-booking app prototype that I designed using Figma. The app allows users to easily book rides, view available drivers, and navigate through a simple and organized interface.</p>
+                <div class="output-content">
+                    <h3>Output 1: Figma E-Commerce Design Layout (Online Ride Booking App)</h3>
+                    <p>RushRide is a mobile ride-booking app prototype that I designed using Figma. This project highlights my understanding of basic UI/UX design principles.</p>
                 </div>
-                <div class="output-media">
-                    <img src="IMG_20260420_221505.jpg">
-                    <a href="https://www.figma.com/design/8BqKHKnVOEMFhsNDgKGyaF/HCI?node-id=1-6" class="btn">View Figma</a>
+                <div class="output-image">
+                    <img src="IMG_20260420_221505.jpg" alt="Figma Project">
+                    <a href="https://www.figma.com/design/8BqKHKnVOEMFhsNDgKGyaF/HCI?node-id=1-6" class="btn btn-secondary" target="_blank">View Details</a>
                 </div>
             </div>
-
             <div class="output-card reverse">
-                <div class="output-info">
+                <div class="output-content">
                     <h3>Output 2: Wordpress Website</h3>
-                    <p>This project is a portfolio website published in Wordpress. It features a little about myself and the outputs I've learned during the first semester.</p>
+                    <p>This project is a portfolio website published in Wordpress. It features smooth transitions and interactive elements to enhance engagement.</p>
                 </div>
-                <div class="output-media">
-                    <img src="IMG_20260420_215234.jpg">
-                    <a href="https://myportfoliointroducingme.wordpress.com/" class="btn">View Site</a>
+                <div class="output-image">
+                    <img src="IMG_20260420_215234.jpg" alt="Wordpress Project">
+                    <a href="https://myportfoliointroducingme.wordpress.com/" class="btn btn-secondary" target="_blank">View Details</a>
                 </div>
             </div>
-
             <div class="output-card">
-                <div class="output-info">
+                <div class="output-content">
                     <h3>Output 3: Canva Portfolio</h3>
                     <p>This portfolio presents an overview of who I am—my background, educational journey, skills, and personal interests.</p>
                 </div>
-                <div class="output-media">
-                    <img src="IMG_20251021_151216.jpg">
-                    <a href="https://www.canva.com/design/DAGv1DUumnk/..." class="btn">View Canva</a>
+                <div class="output-image">
+                    <img src="IMG_20251021_151216.jpg" alt="Canva Project">
+                    <a href="https://www.canva.com/design/DAGv1DUumnk" class="btn btn-secondary" target="_blank">View Details</a>
                 </div>
             </div>
         </section>
@@ -185,102 +579,160 @@
         <section id="tutorials">
             <h2>Tutorials</h2>
             <div class="tutorial-card">
-                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/jzWxBuvwuwQ"></iframe></div>
+                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/jzWxBuvwuwQ" frameborder="0" allowfullscreen></iframe></div>
                 <h3>Getting Started with Canva</h3>
                 <p>Learn the basics of using Canva, from navigating the interface to creating your first design.</p>
             </div>
             <div class="tutorial-card">
-                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/jQ1sfKIl50E"></iframe></div>
-                <h3>UI/UX Design with Figma</h3>
-                <p>Learn how to create wireframes and interactive prototypes using Figma's essential tools.</p>
+                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/jQ1sfKIl50E" frameborder="0" allowfullscreen></iframe></div>
+                <h3>UI/UX Design Fundamentals with Figma</h3>
+                <p>Covers essential tools and features of Figma used in modern UI/UX design.</p>
             </div>
             <div class="tutorial-card">
-                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/61mkx_OV61s"></iframe></div>
-                <h3>Photo Editing in Photoshop</h3>
-                <p>Comprehensive guide on color correction and retouching in Adobe Photoshop.</p>
+                <div class="tutorial-video"><iframe src="https://www.youtube.com/embed/61mkx_OV61s" frameborder="0" allowfullscreen></iframe></div>
+                <h3>Photo Editing and Manipulation in Photoshop</h3>
+                <p>Learn how to edit and enhance photos using Adobe Photoshop with high-quality results.</p>
             </div>
         </section>
 
         <section id="contacts">
             <h2>Contact Me</h2>
-            <form class="contact-form" action="https://formspree.io/f/xkokqpwz" method="POST">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-
-            <div class="contact-details-grid">
-                <div class="contact-item"><i class="fa fa-phone"></i><br>+63 970 0427 462</div>
-                <div class="contact-item"><i class="fa fa-envelope"></i><br>krishaminmaque@gmail.com</div>
-                <div class="contact-item"><i class="fa fa-facebook"></i><br>Krisha Min</div>
+            <p class="intro-text">Feel free to reach out to me through any of the channels below.</p>
+            <div class="contacts-grid">
+                <div class="contact-card"><div class="contact-icon"><i class="fa fa-phone"></i></div><h3>Phone</h3><p>+63 970 0427 462</p></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fa fa-envelope"></i></div><h3>Email</h3><p>krishaminmaque@gmail.com</p></div>
+                <div class="contact-card"><div class="contact-icon"><i class="fa fa-link"></i></div><h3>Social Media</h3><p>Krisha Min</p></div>
             </div>
+
+            <form action="https://formspree.io/f/xkokqpwz" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="What message would you like to send?" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
 
     <div class="chatbot-container">
-        <button id="chatbotToggle" class="chatbot-toggle"><i class="fa fa-comments"></i></button>
+        <button id="chatbotToggle" class="chatbot-toggle"><i class="fa fa-robot"></i></button>
         <div id="chatbotWindow" class="chatbot-window">
-            <div class="chatbot-header"><h3>AI Assistant</h3><button id="closeChat" style="background:none; border:none; color:white; cursor:pointer;">X</button></div>
-            <div id="chatMessages" class="chatbot-messages">
-                <div class="chat-bubble">Hi! I'm your AI assistant. How can I help you?</div>
-            </div>
+            <div class="chatbot-header"><h3>AI Assistant</h3><button id="closeChatbot" class="chatbot-close">X</button></div>
+            <div id="chatMessages" class="chatbot-messages"></div>
             <div class="chatbot-input-area">
-                <input type="text" id="chatInput" class="chatbot-input" placeholder="Type here...">
-                <button id="sendChat" style="background:var(--primary); color:white; border:none; padding:10px 15px; border-radius:20px; cursor:pointer;"><i class="fa fa-paper-plane"></i></button>
+                <input type="text" id="chatInput" class="chatbot-input" placeholder="Ask me about Krishamin...">
+                <button id="sendMessage" class="chatbot-send">Send</button>
             </div>
         </div>
     </div>
 
-    <footer><p>&copy; 2026 Krishamin Lagahit. All rights reserved.</p></footer>
+    <footer><p>&copy; 2026 KrishaminLagahit. All rights reserved.</p></footer>
 
     <script>
-        const myFinalPortfolioData = {
-            name: "Krishamin Lagahit",
-            school: "CPSU-Moises Padilla"
-        };
+        // --- Slideshow Logic ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
 
-        const chatWin = document.getElementById('chatbotWindow');
-        const chatInp = document.getElementById('chatInput');
-        const chatMsgs = document.getElementById('chatMessages');
-
-        document.getElementById('chatbotToggle').onclick = () => {
-            chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
-        };
-
-        document.getElementById('closeChat').onclick = () => {
-            chatWin.style.display = 'none';
-        };
-
-        function addMessage(text, isUser = false) {
-            const div = document.createElement('div');
-            div.className = 'chat-bubble';
-            div.style.textAlign = isUser ? 'right' : 'left';
-            div.style.background = isUser ? 'var(--primary)' : 'rgba(0, 204, 255, 0.1)';
-            div.innerText = text;
-            chatMsgs.appendChild(div);
-            chatMsgs.scrollTop = chatMsgs.scrollHeight;
+        function changeSlide(n) {
+            currentSlide = (currentSlide + n + slides.length) % slides.length;
+            updateSlides();
         }
 
-        document.getElementById('sendChat').onclick = () => {
-            const val = chatInp.value.trim().toLowerCase();
-            if(!val) return;
-            addMessage(chatInp.value, true);
-            chatInp.value = '';
-            
-            let reply = "Feel free to ask about my projects or contact info!";
-            if(val.includes("who")) reply = "I am " + myFinalPortfolioData.name + " from " + myFinalPortfolioData.school;
-            if(val.includes("hi") || val.includes("hello")) reply = "Hello! How can I help you today?";
-            
-            setTimeout(() => addMessage(reply), 600);
-        };
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlides();
+        }
 
-        let currentIdx = 0;
-        setInterval(() => {
-            const wrap = document.getElementById('certSlides');
-            currentIdx = (currentIdx + 1) % 3;
-            wrap.style.transform = `translateX(-${currentIdx * 100}%)`;
-        }, 4000);
+        function updateSlides() {
+            const slideTrack = document.querySelector('.slides');
+            if(slideTrack) {
+                slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentSlide));
+        }
+
+        setInterval(() => changeSlide(1), 5000);
+
+        // --- Chatbot Functional Logic ---
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
+
+        // Toggle visibility
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+            if (chatMessages.innerHTML === "") {
+                appendMessage("bot", "Hello! I'm Krishamin's AI Assistant. How can I help you today? You can ask about her works, contacts, or tutorials.");
+            }
+        });
+
+        closeChatbot.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+
+        // Send Message on click or Enter key
+        sendMessage.addEventListener('click', processUserMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') processUserMessage();
+        });
+
+        function appendMessage(sender, text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}`;
+            msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function processUserMessage() {
+            const query = chatInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            appendMessage("user", chatInput.value);
+            chatInput.value = "";
+
+            // Logic: Artificial delay to feel like "thinking"
+            setTimeout(() => {
+                const response = getBotResponse(query);
+                appendMessage("bot", response);
+            }, 600);
+        }
+
+        function getBotResponse(input) {
+            // Logic based on content of the portfolio
+            if (input.includes("hello") || input.includes("hi")) {
+                return "Hi there! I can tell you all about Krishamin's IT projects and skills. What would you like to know?";
+            }
+            if (input.includes("who") || input.includes("about") || input.includes("krishamin")) {
+                return "Krishamin Lagahit is an IT Student at CPSU-Moises Padilla. She is dedicated to high-quality digital solutions and UI/UX design.";
+            }
+            if (input.includes("contact") || input.includes("email") || input.includes("phone") || input.includes("message")) {
+                return "You can contact Krishamin at <b>+63 970 0427 462</b> or email <b>krishaminmaque@gmail.com</b>. You can also use the form in the Contacts section.";
+            }
+            if (input.includes("output") || input.includes("project") || input.includes("work")) {
+                return "Krishamin has 3 main outputs: <br>1. <b>RushRide</b> (Figma Ride Booking App)<br>2. <b>Wordpress Portfolio</b><br>3. <b>Canva Portfolio</b>. Which one would you like to know more about?";
+            }
+            if (input.includes("figma") || input.includes("rushride")) {
+                return "RushRide is a mobile ride-booking app prototype designed in Figma. It highlights her skills in UI/UX principles.";
+            }
+            if (input.includes("tutorial") || input.includes("video") || input.includes("learn")) {
+                return "She has tutorials on <b>Canva Basics</b>, <b>Figma UI/UX</b>, and <b>Photoshop Editing</b> available in the Tutorials section.";
+            }
+            if (input.includes("wordpress")) {
+                return "Her Wordpress site is an interactive portfolio featuring smooth transitions. You can find the link in the 'My Outputs' section.";
+            }
+            if (input.includes("canva")) {
+                return "The Canva portfolio provides an overview of her educational journey, skills, and personal interests.";
+            }
+            if (input.includes("cv") || input.includes("resume") || input.includes("download")) {
+                return "You can download her CV directly from the Home section using the 'Download My CV' button.";
+            }
+            
+            return "I'm sorry, I didn't quite get that. Could you please ask about her 'outputs', 'tutorials', or 'contact information'?";
+        }
     </script>
 </body>
 </html>
