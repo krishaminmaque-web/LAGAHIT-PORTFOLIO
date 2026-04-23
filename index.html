@@ -637,112 +637,149 @@
 
     <footer><p>&copy; 2026 KrishaminLagahit. All rights reserved.</p></footer>
 
-    <script>
-        // --- Slideshow Logic ---
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const indicators = document.querySelectorAll('.indicator');
+<script>
+    // --- Slideshow Logic ---
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
 
-        function changeSlide(n) {
-            currentSlide = (currentSlide + n + slides.length) % slides.length;
-            updateSlides();
+    function changeSlide(n) {
+        currentSlide = (currentSlide + n + slides.length) % slides.length;
+        updateSlides();
+    }
+
+    function goToSlide(n) {
+        currentSlide = n;
+        updateSlides();
+    }
+
+    function updateSlides() {
+        const slideTrack = document.querySelector('.slides');
+        if(slideTrack) {
+            slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentSlide));
+    }
+
+    setInterval(() => changeSlide(1), 5000);
+
+    // --- Chatbot Functional Logic ---
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const closeChatbot = document.getElementById('closeChatbot');
+    const chatInput = document.getElementById('chatInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // Toggle visibility
+    chatbotToggle.addEventListener('click', () => {
+        chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+        if (chatMessages.innerHTML === "") {
+            appendMessage("bot", "Hello! I'm Krishamin's AI Assistant. How can I help you today? You can ask about her works, contacts, or tutorials.");
+        }
+    });
+
+    closeChatbot.addEventListener('click', () => {
+        chatbotWindow.style.display = 'none';
+    });
+
+    // Send Message on click or Enter key
+    sendMessage.addEventListener('click', processUserMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') processUserMessage();
+    });
+
+    function appendMessage(sender, text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${sender}`;
+        msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function processUserMessage() {
+        const query = chatInput.value.trim().toLowerCase();
+        if (!query) return;
+
+        appendMessage("user", chatInput.value);
+        chatInput.value = "";
+
+        // Logic: Artificial delay to feel like "thinking"
+        setTimeout(() => {
+            const response = getBotResponse(query);
+            appendMessage("bot", response);
+        }, 600);
+    }
+
+    function getBotResponse(input) {
+        // --- GREETINGS ---
+        if (input.includes("hello") || input.includes("hi") || input.includes("hey") || input.includes("good morning")) {
+            return "Hi there! 😊 I can tell you all about Krishamin's IT projects, skills, and background. What would you like to know?";
         }
 
-        function goToSlide(n) {
-            currentSlide = n;
-            updateSlides();
+        // --- ABOUT / WHO / NAME ---
+        if (input.includes("who") || input.includes("about") || input.includes("krishamin") || input.includes("lagahit") || input.includes("name")) {
+            return "Krishamin Lagahit is an IT Student at Central Philippine State University - Moises Padilla Campus. She is skilled in design, programming, and creating digital solutions.";
         }
 
-        function updateSlides() {
-            const slideTrack = document.querySelector('.slides');
-            if(slideTrack) {
-                slideTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-            }
-            indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentSlide));
+        // --- EDUCATION / BACKGROUND / SCHOOL ---
+        if (input.includes("school") || input.includes("study") || input.includes("graduate") || input.includes("background") || input.includes("cpsu")) {
+            return "She is currently a 2nd year student at CPSU-MPC taking up Information Technology. She is also a graduate of Sisters of Mary School with EPAS NCII background.";
         }
 
-        setInterval(() => changeSlide(1), 5000);
-
-        // --- Chatbot Functional Logic ---
-        const chatbotToggle = document.getElementById('chatbotToggle');
-        const chatbotWindow = document.getElementById('chatbotWindow');
-        const closeChatbot = document.getElementById('closeChatbot');
-        const chatInput = document.getElementById('chatInput');
-        const sendMessage = document.getElementById('sendMessage');
-        const chatMessages = document.getElementById('chatMessages');
-
-        // Toggle visibility
-        chatbotToggle.addEventListener('click', () => {
-            chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
-            if (chatMessages.innerHTML === "") {
-                appendMessage("bot", "Hello! I'm Krishamin's AI Assistant. How can I help you today? You can ask about her works, contacts, or tutorials.");
-            }
-        });
-
-        closeChatbot.addEventListener('click', () => {
-            chatbotWindow.style.display = 'none';
-        });
-
-        // Send Message on click or Enter key
-        sendMessage.addEventListener('click', processUserMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') processUserMessage();
-        });
-
-        function appendMessage(sender, text) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `message ${sender}`;
-            msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+        // --- SKILLS / TOOLS / SOFTWARE ---
+        if (input.includes("skill") || input.includes("canva") || input.includes("figma") || input.includes("photoshop") || input.includes("programming") || input.includes("java") || input.includes("c++")) {
+            return "Her skills include designing using <b>Canva, Adobe Photoshop, and Figma</b>. She also does basic programming using <b>Java and C++</b>.";
         }
 
-        function processUserMessage() {
-            const query = chatInput.value.trim().toLowerCase();
-            if (!query) return;
-
-            appendMessage("user", chatInput.value);
-            chatInput.value = "";
-
-            // Logic: Artificial delay to feel like "thinking"
-            setTimeout(() => {
-                const response = getBotResponse(query);
-                appendMessage("bot", response);
-            }, 600);
+        // --- CONTACT / EMAIL / PHONE / NUMBER ---
+        if (input.includes("contact") || input.includes("email") || input.includes("phone") || input.includes("call") || input.includes("message") || input.includes("number")) {
+            return "You can contact her at:<br>📞 <b>Phone:</b> +63 970 0427 462<br>📧 <b>Email:</b> krishaminmaque@gmail.com";
         }
 
-        function getBotResponse(input) {
-            // Logic based on content of the portfolio
-            if (input.includes("hello") || input.includes("hi")) {
-                return "Hi there! I can tell you all about Krishamin's IT projects and skills. What would you like to know?";
-            }
-            if (input.includes("who") || input.includes("about") || input.includes("krishamin")) {
-                return "Krishamin Lagahit is an IT Student at CPSU-Moises Padilla. She is dedicated to high-quality digital solutions and UI/UX design.";
-            }
-            if (input.includes("contact") || input.includes("email") || input.includes("phone") || input.includes("message")) {
-                return "You can contact Krishamin at <b>+63 970 0427 462</b> or email <b>krishaminmaque@gmail.com</b>. You can also use the form in the Contacts section.";
-            }
-            if (input.includes("output") || input.includes("project") || input.includes("work")) {
-                return "Krishamin has 3 main outputs: <br>1. <b>RushRide</b> (Figma Ride Booking App)<br>2. <b>Wordpress Portfolio</b><br>3. <b>Canva Portfolio</b>. Which one would you like to know more about?";
-            }
-            if (input.includes("figma") || input.includes("rushride")) {
-                return "RushRide is a mobile ride-booking app prototype designed in Figma. It highlights her skills in UI/UX principles.";
-            }
-            if (input.includes("tutorial") || input.includes("video") || input.includes("learn")) {
-                return "She has tutorials on <b>Canva Basics</b>, <b>Figma UI/UX</b>, and <b>Photoshop Editing</b> available in the Tutorials section.";
-            }
-            if (input.includes("wordpress")) {
-                return "Her Wordpress site is an interactive portfolio featuring smooth transitions. You can find the link in the 'My Outputs' section.";
-            }
-            if (input.includes("canva")) {
-                return "The Canva portfolio provides an overview of her educational journey, skills, and personal interests.";
-            }
-            if (input.includes("cv") || input.includes("resume") || input.includes("download")) {
-                return "You can download her CV directly from the Home section using the 'Download My CV' button.";
-            }
-            
-            return "I'm sorry, I didn't quite get that. Could you please ask about her 'outputs', 'tutorials', or 'contact information'?";
+        // --- OUTPUTS / PROJECTS / WORKS / PORTFOLIO ---
+        if (input.includes("output") || input.includes("project") || input.includes("work") || input.includes("portfolio") || input.includes("create")) {
+            return "She has 4 main outputs/projects:<br>✅ <b>RushRide App</b> (Figma Design)<br>✅ <b>Wordpress Website</b><br>✅ <b>Canva Portfolio</b><br>✅ <b>Tetris Deluxe Simulation</b><br><br>Which one do you want to know more about?";
         }
-    </script>
+
+        // --- FIGMA / RUSHRIDE / APP ---
+        if (input.includes("figma") || input.includes("rushride") || input.includes("app") || input.includes("design layout")) {
+            return "<b>RushRide</b> is an online ride-booking application prototype. It was designed using Figma to practice UI/UX design principles.";
+        }
+
+        // --- WORDPRESS / WEBSITE ---
+        if (input.includes("wordpress") || input.includes("website") || input.includes("site")) {
+            return "She created a portfolio website using Wordpress. It has smooth transitions and interactive elements to showcase her background and skills.";
+        }
+
+        // --- CANVA ---
+        if (input.includes("canva")) {
+            return "The Canva portfolio is a visual presentation showing her educational journey, skills, and personal interests in a creative layout.";
+        }
+        
+        // --- SIMULATION / GAME / TETRIS ---
+        if (input.includes("simulation") || input.includes("game") || input.includes("tetris")) {
+            return "<b>Tetris Deluxe</b> is a game simulation project. It works like the classic Tetris game but with added levels of fun and challenge.";
+        }
+
+        // --- TUTORIALS / VIDEO / LEARN / YOUTUBE ---
+        if (input.includes("tutorial") || input.includes("video") || input.includes("learn") || input.includes("youtube") || input.includes("teach")) {
+            return "She has tutorials available on:<br>📺 <b>Getting Started with Canva</b><br>📺 <b>UI/UX Design with Figma</b><br>📺 <b>Photo Editing in Photoshop</b>";
+        }
+
+        // --- CV / RESUME / DOWNLOAD / BIO DATA ---
+        if (input.includes("cv") || input.includes("resume") || input.includes("download") || input.includes("bio data")) {
+            return "You can download her CV directly from the Home section. Just look for the button that says 'Download My CV'.";
+        }
+
+        // --- CERTIFICATE / SEMINAR ---
+        if (input.includes("certificate") || input.includes("seminar") || input.includes("training")) {
+            return "She has attended various professional development seminars and earned certifications, which you can see in the slideshow on the Home page.";
+        }
+
+        // --- DEFAULT ANSWER ---
+        return "I'm sorry, I didn't quite understand that. 😅 You can ask me about her <b>'projects'</b>, <b>'tutorials'</b>, <b>'skills'</b>, or <b>'contact details'</b>!";
+    }
+</script>
 </body>
 </html>
